@@ -4,10 +4,10 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import {legacy_createStore} from 'redux'
-import reducer from './reducers/ticket-list-reducer';
+import rootReducer from './reducers/index';
 import { Provider } from 'react-redux'
 
-const store = legacy_createStore(reducer);
+const store = legacy_createStore(rootReducer);
 
 store.subscribe(() =>
   console.log(store.getState())
