@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { v4 } from 'uuid';
 
-function NewTicketForm(props) {
+function NewTicketForm(props){
 
   function handleNewTicketFormSubmission(event) {
     event.preventDefault();

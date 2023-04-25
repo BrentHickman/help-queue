@@ -17,6 +17,7 @@ class TicketControl extends React.Component {
       selectedTicket: null,
       editing: false
       // mainTicketList: []
+
     };
   }
 
@@ -84,6 +85,12 @@ class TicketControl extends React.Component {
     }
     dispatch(action);
     this.setState({selectedTicket: null});
+  }
+
+  handleAddingNewTicketToList = (newTicket) => {
+    const newMainTicketList = this.state.mainTicketList.concat(newTicket);
+    this.setState({mainTicketList: newMainTicketList,
+                  formVisibleOnPage: false });
   }
 
   render(){

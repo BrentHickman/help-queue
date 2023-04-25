@@ -3,6 +3,7 @@ import Ticket from "./Ticket";
 import PropTypes from "prop-types";
 
 
+
 function TicketList(props) {
   return (
     <React.Fragment>
@@ -17,9 +18,11 @@ function TicketList(props) {
           key={ticket.id}/>
       )}
     </React.Fragment>
+
   );
 
 }
+
 
 // Add propTypes for ticketList.
 TicketList.propTypes = {
