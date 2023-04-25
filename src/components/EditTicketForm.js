@@ -1,21 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { v4 } from 'uuid';
 
-function NewTicketForm(props) {
 
-  function handleNewTicketFormSubmission(event) {
+function EditTicketForm(props) {
+  const { ticket } = props;
+  
+  function handleEditTicketFormSubmission(event) {
     event.preventDefault();
-    props.onNewTicketCreation({
+    props.onTicketEdit({
       names: event.target.names.value, 
       location: event.target.location.value, 
-      issue: event.target.issue.value, 
-      id: v4()
+      issue: event.target.issue.value,
+      id: ticket.id
     });
   }
   return (
     <React.Fragment>
-      <form onSubmit={handleNewTicketFormSubmission}>
+      <form onSubmit={handleEditTicketFormSubmission}>
         <input
           type='text'
           name='names'
@@ -27,14 +28,15 @@ function NewTicketForm(props) {
         <textarea
           name='issue'
           placeholder='Describe your issue.' />
-        <button type='submit'>Help!</button>
+        <button type='submit'>Update!</button>
       </form>
     </React.Fragment>
   );
 }
 
-NewTicketForm.propTypes = {
-  onNewTicketCreation: PropTypes.func
+EditTicketForm.propTypes = {
+  ticket: PropTypes.object,
+  onTicketEdit: PropTypes.func
 };
 
-export default NewTicketForm;
+export default EditTicketForm;
