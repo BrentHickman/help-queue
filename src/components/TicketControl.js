@@ -87,12 +87,6 @@ class TicketControl extends React.Component {
     this.setState({selectedTicket: null});
   }
 
-  handleAddingNewTicketToList = (newTicket) => {
-    const newMainTicketList = this.state.mainTicketList.concat(newTicket);
-    this.setState({mainTicketList: newMainTicketList,
-                  formVisibleOnPage: false });
-  }
-
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
