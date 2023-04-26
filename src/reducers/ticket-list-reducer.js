@@ -1,7 +1,10 @@
+import * as c from './../actions/ActionTypes';
+
+
 const reducer = (state = {}, action) => {
   const { names, location, issue, id } = action;
   switch (action.type) {
-    case "ADD_TICKET":
+    case c.ADD_TICKET:
       return Object.assign({}, state, {
         [id]: {
           names: names,
@@ -10,7 +13,7 @@ const reducer = (state = {}, action) => {
           id: id
         }
       });
-    case "DELETE_TICKET":
+    case c.DELETE_TICKET:
       let newState = {...state };
       delete newState[id];
       return newState;
@@ -19,36 +22,6 @@ const reducer = (state = {}, action) => {
   }
 };
 
-// const { createStore } = Redux;
-
-// const store = createStore(ticketListReducer);
-
-// console.log(store.getState());
-
-// const unsubscribe = store.subscribe(() => console.log(store.getState()));
-
-// store.dispatch({
-//   type: 'ADD_TICKET',
-//   names: 'Jasmine and Justine',
-//   location: '2a',
-//   issue: 'Reducer has side effects.',
-//   id: 1
-// });
-
-// store.dispatch({
-//   type: 'ADD_TICKET',
-//   names: 'Brann and Rose',
-//   location: '3b',
-//   issue: 'Problems understanding Redux.',
-//   id: 2
-// });
-
-// store.dispatch({
-//   type: 'DELETE_TICKET',
-//   id: 1
-// });
-
-// unsubscribe();
 
 
 export default reducer;
